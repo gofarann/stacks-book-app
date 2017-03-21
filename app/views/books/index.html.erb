@@ -3,7 +3,13 @@
 <h4>
   <ul>
     <% @books.each do |book| %>
-      <li><%= book[:title] %>: <%= book[:author] %>
+
+      <!-- link_to "Some link", books_path(book.id)
+      -->
+
+      <li>
+        <%= link_to book.title, book_path(book.id) %>:
+        <%= book.author %>
       </li>
     <% end %>
   </ul>
