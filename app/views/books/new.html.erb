@@ -1,15 +1,5 @@
 <h1>Add New Book</h1>
 
-<%= form_for @book do |f| %>
+<%= render partial: "form" %>
 
-  <%= f.label :title, class: "title" %>
-  <%= f.text_field :title %>
-
-  <%= f.label :author %>
-  <%= f.text_field :author %>
-
-  <%= f.label :description %>
-  <%= f.text_area :description, size: "60x12" %>
-
-  <%= f.submit "Create" %>
-<% end %>
+<h5>COOL WERE HERE AT THE BOTTOM</h5>
