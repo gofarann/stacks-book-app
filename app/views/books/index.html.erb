@@ -9,7 +9,7 @@
 
       <li>
         <%= link_to book.title, book_path(book.id) %>:
-        <%= book.author %>
+        <%= book.author.name %>
       </li>
     <% end %>
   </ul>
