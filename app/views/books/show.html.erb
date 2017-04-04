@@ -3,14 +3,14 @@
   <%= @result_book.title %>
 </p>
 <p>
-  A Book By: <%= @result_book.author %>
+  A Book By: <%= @result_book.author.name %>
 </p>
 <p>
   <%= @result_book.description %>
 </p>
 
 <%= link_to "Edit", edit_book_path(@result_book.id) %>
-<%= link_to "Delete", delete_book_path(@result_book.id),
+<%= link_to "Delete", book_path(@result_book.id),
     data: { confirm: "Are you sure you want to delete this book?" },
     method: :delete
 %>
