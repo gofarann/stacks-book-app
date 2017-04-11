@@ -1,9 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  author: MyString
-  title: MyString
+POODR:
+  author: metz
+  title: Practical Object Oriented Programming in Ruby
+  isbn: 666
 
-two:
-  author: MyString
-  title: MyString
+venetia:
+  author: heyer
+  title: Venetia
+  isbn: 54321
+
+missing_title:
+    author: metz
+    isbn: 55555
