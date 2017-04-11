@@ -4,7 +4,10 @@ class BooksController < ApplicationController
   end
 
   def show
-    @result_book = Book.find(params[:id])
+    @result_book = Book.find_by_id(params[:id])
+    if !@result_book
+      render_404
+    end
   end
 
   def new
