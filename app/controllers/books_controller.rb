@@ -32,7 +32,7 @@ class BooksController < ApplicationController
     @book.author = Author.find(book_params[:author_id])
     @book.description = book_params[:description]
     @book.isbn = book_params[:isbn]
-
+    binding.pry
     if @book.save
       redirect_to book_path
     else
