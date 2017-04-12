@@ -18,8 +18,10 @@ class BooksController < ApplicationController
     @book = Book.create book_params
 
     if @book.id != nil
+      flash[:success] = "Book added successfully"
       redirect_to books_path
     else
+      flash.now[:error] = "Error has occurred"
       render "new"
     end
   end
