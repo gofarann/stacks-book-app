@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get "/login", to: "sessions#login_form"
   post "/login", to: "sessions#login"
+
+  delete "/logout", to: "sessions#logout"
   #, except: [:destroy]
 
 

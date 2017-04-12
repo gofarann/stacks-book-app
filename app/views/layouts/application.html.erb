@@ -9,6 +9,20 @@
   </head>
 
   <body>
+    <h1>Welcome To Books App!</h1>
+    <nav>
+      <ul>
+        <li><a href=<%= books_path %>>All Books</a></li>
+        <li><a href=<%= new_book_path %>>New Book</a></li>
+        <li>
+          <% unless session[:author_id] %>
+            <%= link_to "Login", login_path %>
+          <% else %>
+            <%= link_to "Logout", logout_path, method: :delete %>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
     <section class="flash">
       <% flash.each do |name, message| %>
         <div class="<%= name %>"><%= message %></div>

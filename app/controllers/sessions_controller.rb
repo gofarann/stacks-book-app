@@ -16,4 +16,11 @@ class SessionsController < ApplicationController
       render :login_form
     end
   end
+
+  def logout
+    # session[:author_id] = nil
+    session.delete(:author_id)
+    flash[:success] = "You are successfully logged out"
+    redirect_to root_path
+  end
 end
