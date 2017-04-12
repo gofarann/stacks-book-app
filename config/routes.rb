@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root "books#index"
 
   resources :books
+
+  get "/login", to: "sessions#login_form"
+  post "/login", to: "sessions#login"
   #, except: [:destroy]
 
 
