@@ -11,6 +11,8 @@ group :test do
 end
 
 gem 'awesome_print'
+gem 'omniauth'
+gem 'omniauth-github'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
