@@ -4,9 +4,11 @@ Rails.application.routes.draw do
 
   resources :books
 
-  get "/login", to: "sessions#login_form"
-  post "/login", to: "sessions#login"
+  get "/auth/github/callback", to: "sessions#create"
 
+  # get "/login", to: "sessions#login_form"
+  # post "/login", to: "sessions#login"
+  #
   delete "/logout", to: "sessions#logout"
   #, except: [:destroy]
 

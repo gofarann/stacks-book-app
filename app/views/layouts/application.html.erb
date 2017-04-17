@@ -15,8 +15,8 @@
         <li><a href=<%= books_path %>>All Books</a></li>
         <li><a href=<%= new_book_path %>>New Book</a></li>
         <li>
-          <% unless session[:author_id] %>
-            <%= link_to "Login", login_path %>
+          <% unless session[:user_id] %>
+            <%= link_to "Login using GitHub", "/auth/github" %>
           <% else %>
             <%= link_to "Logout", logout_path, method: :delete %>
           <% end %>
