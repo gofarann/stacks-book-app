@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :find_book, only: [:show, :edit, :update]
+  skip_before_action :require_login, only: [:index]
 
   def index
     @books = Book.all
@@ -34,7 +35,7 @@ class BooksController < ApplicationController
     @book.author = Author.find(book_params[:author_id])
     @book.description = book_params[:description]
     @book.isbn = book_params[:isbn]
-    
+
     if @book.save
       redirect_to book_path
     else
