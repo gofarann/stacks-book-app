@@ -3,7 +3,13 @@ class BooksController < ApplicationController
   skip_before_action :require_login, only: [:index]
 
   def index
-    @books = Book.all
+    if params[:genre_id]
+      # retrieve the books specific to that genre
+      @books = Book.includes(:genres).where(genres: { id: params[:genre_id]})
+    else
+      # normal scenario
+      @books = Book.all
+    end
   end
 
   def show
