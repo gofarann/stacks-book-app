@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
   def create
     auth_hash = request.env['omniauth.auth']
-
+    # binding.pry
     user = User.find_by(uid: auth_hash["uid"], provider: auth_hash["provider"])
 
     # if its not there (in the DB) then make/save it
