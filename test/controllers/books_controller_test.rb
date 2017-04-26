@@ -42,13 +42,15 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
             { title: "Testing",
               author_id: authors(:metz).id,
               description: "Whatevs",
-              isbn: rand(10..50)
+              isbn: rand(10..50),
+              "genres"=>[genres(:scifi).id, genres(:fantasy).id]
             }
       }
       }.must_change 'Book.count', 1
     end
 
     it "should delete a book and redirect to book list" do
+
       delete book_path(books(:venetia).id)
       must_redirect_to books_path
     end
