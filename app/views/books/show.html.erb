@@ -5,10 +5,22 @@
 <p>
   A Book By: <%= @book.author.name %>
 </p>
+<section>
+<h3>Description</h3>
 <p>
   <%= @book.description %>
 </p>
-
+</section>
+<section>
+  <h3>Genres</h3>
+  <ul>
+    <% @book.genres.each do |genre| %>
+      <li>
+        <%= genre.name %>
+      </li>
+    <% end %>
+  </ul>
+</section>
 <%= link_to "Edit", edit_book_path(@book.id) %>
 <%= link_to "Delete", book_path(@book.id),
     data: { confirm: "Are you sure you want to delete this book?" },

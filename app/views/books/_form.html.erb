@@ -16,6 +16,10 @@
   <%= f.label :author %>
   <%= f.select :author_id, Author.all.map { |author| [author.name, author.id] } %>
 
+  <%= f.label :genre %>
+  <%= f.select :genres, Genre.all.map { |genre| [genre.name, genre.id] }, {}, {multiple: true} %>
+
+
   <%= f.label :description %>
   <%= f.text_area :description, size: "60x12" %>
 

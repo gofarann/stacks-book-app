@@ -24,12 +24,18 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.create book_params
-
+    params[:book][:genres].each do |genre_id|
+      if genre_id != "" && genre_id != nil && Genre.find_by(id: genre_id)
+        @book.genres << Genre.find_by(id: genre_id)
+      end
+    end
+    @book.save
     if @book.id != nil
       flash[:success] = "Book added successfully"
       redirect_to books_path
     else
       flash.now[:error] = "Error has occurred"
+      puts @book.errors.messages
       render "new"
     end
   end
@@ -42,6 +48,11 @@ class BooksController < ApplicationController
     @book.description = book_params[:description]
     @book.isbn = book_params[:isbn]
 
+    params[:book][:genres].each do |genre_id|
+      if genre_id != "" && genre_id != nil && Genre.find_by(id: genre_id)
+        @book.genres << Genre.find_by(id: genre_id)
+      end
+    end
     if @book.save
       redirect_to book_path
     else
@@ -58,7 +69,7 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :author_id, :description, :isbn)
+    params.require(:book).permit(:title, :author_id, :description, :isbn, :genres)
   end
 
   def find_book

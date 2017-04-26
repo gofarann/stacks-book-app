@@ -27,8 +27,12 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
           { title: "Testing",
             author_id: authors(:metz).id,
             description: "Whatevs",
-            isbn: rand(10..50)
+            isbn: rand(10..50),
+            "genres"=>[genres(:scifi).id, genres(:fantasy).id]
           } }
+      puts "Flash[error]:  #{flash[:error]}"
+      puts "Flash[success]:  #{flash[:success]}"
+
       must_redirect_to books_path
     end
 
